@@ -9,7 +9,7 @@ export default function Newslist() {
     useEffect(() => {
         function getArticles() 
         {
-            fetch(`https://newsapi.org/v2/top-headlines?country=in&category=${cat}&q=${search}&apiKey=1e88e661a5594e6193bfca068250da86`).then((res)=>res.json()).then((data)=>{setNews(data.articles)})
+            axios(`https://newsapi.org/v2/top-headlines?country=in&category=${cat}&q=${search}&apiKey=1e88e661a5594e6193bfca068250da86`).then((res)=>{setNews(res.data.articles)})
         }
         getArticles()          
     },[cat,search])
